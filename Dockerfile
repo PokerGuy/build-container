@@ -9,3 +9,7 @@ RUN wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tar.xz \
     && update-alternatives --install /usr/bin/python python /usr/local/bin/python3.7 10 \
     && pip3 install --upgrade pip \
     && pip install awscli
+WORKDIR pipeline
+COPY entrypoint.sh /pipeline/entrypoint.sh
+ENTRYPOINT ["./entrypoint.sh"]
+
